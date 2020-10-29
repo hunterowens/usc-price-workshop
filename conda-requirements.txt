@@ -1,0 +1,16 @@
+numpy
+scipy
+matplotlib
+altair
+gcsfs
+papermill
+geoalchemy2
+openpyxl
+cartopy
+scikit-learn
+geopandas>=0.8.0
+intake
+intake-geopandas
+pyarrow
+python-snappy
+
