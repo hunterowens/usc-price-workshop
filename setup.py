@@ -1,7 +1,7 @@
 from os.path import exists
 from setuptools import find_packages, setup
 
-readme = open(",/laplan/README.md").read() if exists("./laplan/README.md") else ""
+readme = open("./laplan/README.md").read() if exists("./laplan/README.md") else ""
 
 setup(
     name="laplan",
