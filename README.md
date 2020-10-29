@@ -1,7 +1,6 @@
 # usc-price-workshop
 workshop for USC price students around build data driven policy briefs.
 
-
 ## simulation exercise 
 
 This workshop consists of a simulation exercise where you will develop data-driven policy and planning briefs for a theoretical LA based state lawmaker. You are charged with coming up with and negiotating a bill to solve the housing crisis. 
@@ -9,11 +8,10 @@ This workshop consists of a simulation exercise where you will develop data-driv
 Each group will be in charge of proposing a theoretical state level housing policy change. For example, you could propse something like last sessions [SB 1120](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200SB1120) or [AB 68](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200AB68)
 
 ## getting start 
-To start, for this repo and name your project.
+To start, fork this repo and name your project.
 
 ## datasets 
 All data is provided using an [Intake Catalog](https://intake.readthedocs.io/en/latest/catalog.html). We additionally provided interfaces to the City of LA [open data](http://data.lacity.org) and [geohub](http://geohub.lacity.org) using the [intake-dcat](https://github.com/cityoflosangeles/intake-dcat) library. The main datasets are
-
 
 ### Core 
 1) `county_parcels`: All LA County Parcels 2006-2019, including joined GEOID10 for the census tract and last year it existed. 
@@ -40,6 +38,8 @@ No data driven analysis is really complete without using American Community Surv
 1) `census_cleaned`: census tables clean to outcomes of intrestes. use the analysis table for hte main data, this is a subset. 
 
 ## submitting your work 
-To 
+To submit your work, commit the updated policy branch and send us the link on github.  
 
-## run on binder 
+## run on binder
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hunterowens/usc-price-workshop/main)

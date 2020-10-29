@@ -26,6 +26,8 @@ sources:
     description: zoning downloaded by the geopub and pubshed to gcs by hunter 
     args:
       urlpath: ./data-actual/zoning.geojson
+      storage_options:
+        token: "anon"
   # General
   county_parcels:
     driver: parquet
@@ -33,6 +35,8 @@ sources:
     args:
       urlpath: gcs://usc-price-workshop/lacounty_parcels.parquet
       engine: pyarrow
+      storage_options:
+        token: "anon"
   zoning_parsed: 
     driver: shapefile
     description: Parsed zoning string into components. Use this for analysis.
@@ -54,6 +58,8 @@ sources:
     description: Metro rail lines downloaded from Metro Developer
     args:
       urlpath: gs://usc-price-workshop/Metro_Rail_Lines.geojson
+      storage_options:
+        token: "anon"
   metro_rail_stations:
     driver: geojson
     description: Metro rail stations downloaded from Metro Developer
@@ -76,45 +82,61 @@ sources:
     args:
       urlpath: gcs://usc-price-workshop/census_analysis_table.parquet
       engine: pyarrow
+      storage_options:
+        token: "anon"
   census_cleaned:
     driver: parquet
     description: Census data pared down for outcomes of interest, in src/C4_subset_census.py. Instead, use census_analysis_table for analysis.
     args:
       urlpath: gcs://usc-price-workshop/census_cleaned.parquet
       engine: pyarrow
+      storage_options:
+        token: "anon"
   census_tracts:
     driver: geojson
     description: Census tracts within City of LA. Use primarily for the geometry.
     args:
       urlpath: gcs://usc-price-workshop/census_tracts.geojson
+      storage_options:
+        token: "anon"
   crosswalk_supplemental_use_overlay:
     driver: parquet
     description: Crosswalk for PCTS supplemental use overlays from City Planning.
     args:
       urlpath: gcs://usc-price-workshop/crosswalk_supplemental_use_overlay.parquet
       engine: pyarrow 
+      storage_options:
+        token: "anon"
   crosswalk_specific_plan:
     driver: parquet
     description: Crosswalk for PCTS specific plans from City Planning.
     args:
       urlpath: gcs://usc-price-workshop/crosswalk_specific_plan.parquet
       engine: pyarrow 
+      storage_options:
+        token: "anon"
   crosswalk_tracts_zone_class:
     driver: parquet
     description: Crosswalk that shows the percent of each tract associated with a particular zone class.
     args:
       urlpath: gcs://usc-price-workshop/crosswalk_tracts_zone_class.parquet
       engine: pyarrow    
+      storage_options:
+        token: "anon"
   crosswalk_zone_class:
     driver: parquet
     description: Crosswalk for zone class from City Planning.
     args:
-      urlpath: gcs://usc-price-workshop/crosswalk_zone_class.parquet
+      urlpath: gs://usc-price-workshop/crosswalk_zone_class.parquet
       engine: pyarrow 
+      storage_options:
+        token: "anon"
   crosswalk_zone_parse_fails:
     driver: parquet
     description: Use this crosswalk to manually fix the ZONE_CMPLT that failed to parse.
     args:
       urlpath: gcs://usc-price-workshop/crosswalk_zone_parse_fails.parquet
       engine: pyarrow 
+      storage_options:
+        token: "anon"
 
