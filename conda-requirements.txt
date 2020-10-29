@@ -10,6 +10,7 @@ cartopy
 scikit-learn
 geopandas>=0.8.0
 intake
+intake-parquet
 intake-geopandas
 pyarrow
 python-snappy
