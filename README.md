@@ -37,9 +37,29 @@ No data driven analysis is really complete without using American Community Surv
 
 1) `census_cleaned`: census tables clean to outcomes of intrestes. use the analysis table for hte main data, this is a subset. 
 
+### Loading data 
+
+To load any data, simply run 
+
+```python 
+# NB you can call the dataset whatever you want
+census_df = catalog.census_cleaned_read()
+```
+
+or 
+
+```python
+gdf = catalog.metro_rail_lines.read()
+```
+
+To load data from one of the city's open data portals, you can take a look at this [demo notebook](https://github.com/CityOfLosAngeles/intake-dcat/blob/master/examples/demo.ipynb). 
+
 ## submitting your work 
 To submit your work, commit the updated policy branch and send us the link on github.  
 
-## run on binder
+## run on binder / running locally
+If you have docker / docker-compose installed, you can simiply run 
+
+`docker-compose up` from the project root. Otherwise, you  can use binder
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hunterowens/usc-price-workshop/main)
