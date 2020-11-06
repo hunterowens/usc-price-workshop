@@ -72,7 +72,7 @@ sources:
   # Census
   census_analysis_table:
     driver: parquet
-    description: Census data reshaped to tract-level using 2018 ACS data, in notebooks/B1-census-tract-stats.ipynb.
+    description: Census data reshaped to tract-level using 2018 ACS data.
     args:
       urlpath: https://storage.googleapis.com/usc-price-workshop/census_analysis_table.parquet
       engine: pyarrow
