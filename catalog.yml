@@ -25,118 +25,96 @@ sources:
     driver: geojson
     description: zoning downloaded by the geopub and pubshed to gcs by hunter 
     args:
-      urlpath: ./data-actual/zoning.geojson
-      storage_options:
-        token: "anon"
+      urlpath: https://storage.googleapis.com/usc-price-workshop/zoning.geojson
   # General
   county_parcels:
     driver: parquet
     description: LA County parcels from 2006-2019, only including the most recent year in which they appear, and joined to census tract GEOID.
     args:
-      urlpath: gcs://usc-price-workshop/lacounty_parcels.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/lacounty_parcels.parquet
       engine: pyarrow
-      storage_options:
-        token: "anon"
   zoning_parsed: 
     driver: shapefile
     description: Parsed zoning string into components. Use this for analysis.
     args:
-      urlpath: zip+gs://usc-price-workshop/zoning_parsed.zip
+      urlpath: https://storage.googleapis.com/usc-price-workshop/zoning_parsed.zip
   # Transit
   metro_bus_stops:
     driver: shapefile
     description: Metro bus stops downloaded from Metro Developer
     args:
-      urlpath: zip+gcs://usc-price-workshop/BusStopServingLines1219.zip
+      urlpath: https://storage.googleapis.com/usc-price-workshop/BusStopServingLines1219.zip
   metro_bus_lines:
     driver: shapefile
     description: Metro bus lines downloaded from Metro Developer
     args:
-      urlpath: zip+gcs://usc-price-workshop/BusLineServingStops1219.zip
+      urlpath: https://storage.googleapis.com/usc-price-workshop/BusLineServingStops1219.zip
   metro_rail_lines:
     driver: geojson
     description: Metro rail lines downloaded from Metro Developer
     args:
-      urlpath: gs://usc-price-workshop/Metro_Rail_Lines.geojson
-      storage_options:
-        token: "anon"
+      urlpath: https://storage.googleapis.com/usc-price-workshop/Metro_Rail_Lines.geojson
   metro_rail_stations:
     driver: geojson
     description: Metro rail stations downloaded from Metro Developer
     args:
-      urlpath: gcs://usc-price-workshop/Metro_Rail_Stations.geojson
+      urlpath: https://storage.googleapis.com/usc-price-workshop/Metro_Rail_Stations.geojson
   metro_rapid_bus_lines:
     driver: shapefile
     description: Metro rapid bus lines downloaded from Metro Developer
     args:
-      urlpath: zip+gcs://usc-price-workshop/RapidBRT1219.zip
+      urlpath: https://storage.googleapis.com/usc-price-workshop/RapidBRT1219.zip
   metrolink_routes:
     driver: geojson
     description: Metrolink routes from SCAG Open Data (which had CRS error)
     args:
-      urlpath: gcs://usc-price-workshop/metrolink_routes.geojson
+      urlpath: https://storage.googleapis.com/usc-price-workshop/metrolink_routes.geojson
   # Census
   census_analysis_table:
     driver: parquet
-    description: Census data reshaped to tract-level using 2018 ACS data, in notebooks/B1-census-tract-stats.ipynb.
+    description: Census data reshaped to tract-level using 2018 ACS data.
     args:
-      urlpath: gcs://usc-price-workshop/census_analysis_table.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/census_analysis_table.parquet
       engine: pyarrow
-      storage_options:
-        token: "anon"
   census_cleaned:
     driver: parquet
     description: Census data pared down for outcomes of interest, in src/C4_subset_census.py. Instead, use census_analysis_table for analysis.
     args:
-      urlpath: gcs://usc-price-workshop/census_cleaned.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/census_cleaned.parquet
       engine: pyarrow
-      storage_options:
-        token: "anon"
   census_tracts:
     driver: geojson
     description: Census tracts within City of LA. Use primarily for the geometry.
     args:
-      urlpath: gcs://usc-price-workshop/census_tracts.geojson
-      storage_options:
-        token: "anon"
+      urlpath: https://storage.googleapis.com/usc-price-workshop/census_tracts.geojson
   crosswalk_supplemental_use_overlay:
     driver: parquet
-    description: Crosswalk for PCTS supplemental use overlays from City Planning.
+    description: Crosswalk for supplemental use overlays from City Planning.
     args:
-      urlpath: gcs://usc-price-workshop/crosswalk_supplemental_use_overlay.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/crosswalk_supplemental_use_overlay.parquet
       engine: pyarrow 
-      storage_options:
-        token: "anon"
   crosswalk_specific_plan:
     driver: parquet
-    description: Crosswalk for PCTS specific plans from City Planning.
+    description: Crosswalk for specific plans from City Planning.
     args:
-      urlpath: gcs://usc-price-workshop/crosswalk_specific_plan.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/crosswalk_specific_plan.parquet
       engine: pyarrow 
-      storage_options:
-        token: "anon"
   crosswalk_tracts_zone_class:
     driver: parquet
     description: Crosswalk that shows the percent of each tract associated with a particular zone class.
     args:
-      urlpath: gcs://usc-price-workshop/crosswalk_tracts_zone_class.parquet
-      engine: pyarrow    
-      storage_options:
-        token: "anon"
+      urlpath: https://storage.googleapis.com/usc-price-workshop/crosswalk_tracts_zone_class.parquet
+      engine: pyarrow
   crosswalk_zone_class:
     driver: parquet
     description: Crosswalk for zone class from City Planning.
     args:
-      urlpath: gs://usc-price-workshop/crosswalk_zone_class.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/crosswalk_zone_class.parquet
       engine: pyarrow 
-      storage_options:
-        token: "anon"
   crosswalk_zone_parse_fails:
     driver: parquet
     description: Use this crosswalk to manually fix the ZONE_CMPLT that failed to parse.
     args:
-      urlpath: gcs://usc-price-workshop/crosswalk_zone_parse_fails.parquet
+      urlpath: https://storage.googleapis.com/usc-price-workshop/crosswalk_zone_parse_fails.parquet
       engine: pyarrow 
-      storage_options:
-        token: "anon"
 

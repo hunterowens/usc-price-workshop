@@ -1,0 +1,2 @@
+intake-dcat
+-e git+https://github.com/hunterowens/usc-price-workshop.git@main#egg=laplan

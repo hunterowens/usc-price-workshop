@@ -1,6 +1,7 @@
-FROM jupyter/datascience-notebook:python-3.8.5
+FROM cityofla/ita-data-civis-lab:latest 
 
 COPY conda-requirements.txt /tmp/
 RUN conda install --yes -c conda-forge --file /tmp/conda-requirements.txt
 
-RUN pip install -e .
+
+

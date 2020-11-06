@@ -1,8 +1,8 @@
+aiohttp
 numpy
 scipy
 matplotlib
 altair
-gcsfs
 papermill
 geoalchemy2
 openpyxl

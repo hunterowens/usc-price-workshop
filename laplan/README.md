@@ -86,56 +86,6 @@ def parse_zoning(row):
     
 parsed = df.apply(parse_zoning, axis = 1)
 ```
-
-## PCTS
-The sub-module is `pcts.py`. PCTS case strings contain prefixes and suffixes. Planning's [PCTS Prefix & Suffix Report](https://planning.lacity.org/resources/prefix-suffix-report) lists the valid values. 
-
-The `PCTSCaseNumber` dataclass takes a string and returns any or all of the components as a new dataframe (note that `year` and `case` are available columns in PCTS, and parsing these may not be necessary). This dataclass is used infrequently.
-
-The function `subset_pcts` can be used once a PCTS connection is made.  It standardizes the initial steps in the data cleaning pipeline so that the PCTS data is extracted and parent/child cases are combined in a standardized way before analysis. The function has optional args. `subset_pcts` and `drop_child_cases` should be used in conjunction with one another. The default is that the full dataset is returned. 
-* **pcts**: pandas.DataFrame of PCTS data. 
-* **start_date**: defaults to "1/1/2010". 
-* **end_date**: defaults to present day.
-* **prefix_list**: a list of prefixes of interest, defaults to all prefixes.
-* **suffix_list**: a list of suffixes of interest, defaults to all suffixes. 
-* **get_dummies**: bool, defaults to False. True returns columns for all the prefixes/suffixes of interest.
-* **verbose**: bool, defaults to False. True returns some comments for prefixes/suffixes that have no cases.
-
-Ex: Return PCTS entitlement cases between Oct 2017-Dec 2019 for the ADM and DIR prefixes and TOC suffixes.
-
-```
-import laplan
-
-prefix_list = ['ADM', 'DIR']
-suffix_list = ['TOC']
-
-df = laplan.pcts.subset_pcts(
-    pcts, 
-    start_date = "10/1/17",
-    end_date = "12/31/19", 
-    prefix_list=prefix_list,
-    suffix_list=suffix_list,
-    get_dummies=True,
-    verbose=True,
-)
-```
-
-| CASE_NBR | CASE_FILE_RCV_DT | ADM | DIR | TOC |  
-| ---| --- | --- | --- | --- | 
-| DIR-2017-81-TOC-SPR | 2018-10-19 | False | True | True  |
-| ADM-2017-4594-TOC | 2017-11-08 | True | False | True  |
-
-The function `drop_child_cases` returns a dataframe of only parent cases. 
-* **df**: pandas.DataFrame returned from `subset_pcts`. 
-* **keep_child_entitlements**: bool, defaults to True. True means that the parent case should also hold all of the prefixes and suffixes from any child cases. `get_dummies` must be True in `subset_pcts`.  False means all the prefix/suffix dummies of the parent case show up, but child cases are dropped, and the prefixes/suffixes of the child cases are not stored. If a child case holds a different suffix not found in the parent case, `keep_child_entitlements = True` would store this information. 
-
-```
-df2 = laplan.pcts.drop_child_cases(
-    df,   
-    keep_child_entitlements=True
-)
-```
-
 ## Census
 The sub-module is `census.py`. 
 
